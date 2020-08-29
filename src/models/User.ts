@@ -2,6 +2,7 @@ import {
   Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn,
 } from 'typeorm';
 
+/* eslint-disable camelcase */
 @Entity('users')
 class User {
   @PrimaryGeneratedColumn('uuid')
