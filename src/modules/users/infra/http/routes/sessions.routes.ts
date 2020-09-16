@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import AuthenticateUserService from '../../modules/users/services/AuthenticateUserService';
+import AuthenticateUserService from '../../../services/AuthenticateUserService';
 
 const sessionsRouter = Router();
 
@@ -14,7 +14,7 @@ sessionsRouter.post('/', async (request, response) => {
     password,
   });
 
-  delete user.password;
+  // delete user.password;
 
   return response.json({ user, token });
 });
