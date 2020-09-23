@@ -7,7 +7,7 @@ interface IAppointmentsRepository {
   create(data: ICreateAppointmentDTO): Promise<Appointment>;
   findByDate(date: Date): Promise<Appointment | undefined>;
   findAllInMonthFromProvider(
-    date: IFindAllInMonthFromProviderDTO,
+    data: IFindAllInMonthFromProviderDTO,
   ): Promise<Appointment[]>;
   findAllInDayFromProvider(
     data: IFindAllInDayFromProviderDTO,

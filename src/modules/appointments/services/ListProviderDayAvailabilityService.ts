@@ -3,7 +3,7 @@ import { getHours, isAfter } from 'date-fns';
 
 import IAppointmentsRepository from '../repositories/IAppointmentsRepository';
 
-interface IRequestDTO {
+interface IRequest {
   provider_id: string;
   day: number;
   month: number;
@@ -18,7 +18,7 @@ type IResponse = Array<{
 @injectable()
 class ListProviderDayAvailabilityService {
   constructor(
-    @inject('AppointmentRepository')
+    @inject('AppointmentsRepository')
     private appointmentsRepository: IAppointmentsRepository,
   ) {}
 
@@ -27,20 +27,22 @@ class ListProviderDayAvailabilityService {
     day,
     month,
     year,
-  }: IRequestDTO): Promise<IResponse> {
+  }: IRequest): Promise<IResponse> {
     const appointments = await this.appointmentsRepository.findAllInDayFromProvider(
       {
         provider_id,
         day,
-        month,
         year,
+        month,
       },
     );
 
     const hourStart = 8;
 
     const eachHourArray = Array.from(
-      { length: 10 },
+      {
+        length: 10,
+      },
       (_, index) => index + hourStart,
     );
 
