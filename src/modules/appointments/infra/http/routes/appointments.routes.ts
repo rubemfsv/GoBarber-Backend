@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import { Router } from 'express';
 
 import ensureAuthenticated from '../../../../users/infra/http/middlewares/ensureAuthenticated';
@@ -8,13 +7,6 @@ const appointmentsRouter = Router();
 const appointmentsController = new AppointmentsController();
 
 appointmentsRouter.use(ensureAuthenticated);
-
-// appointmentsRouter.get('/', async (request, response) => {
-//   const appointmentsRepository = getCustomRepository(AppointmentsRepository);
-//   const appointments = await appointmentsRepository.find();
-
-//   return response.json(appointments);
-// });
 
 appointmentsRouter.post('/', appointmentsController.create);
 

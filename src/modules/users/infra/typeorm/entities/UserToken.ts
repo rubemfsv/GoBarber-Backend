@@ -7,7 +7,6 @@ import {
   Generated,
 } from 'typeorm';
 
-/* eslint-disable camelcase */
 @Entity('user_tokens')
 class UserToken {
   @PrimaryGeneratedColumn('uuid')

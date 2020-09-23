@@ -10,7 +10,6 @@ import {
 
 import User from '../../../../users/infra/typeorm/entities/User';
 
-/* eslint-disable camelcase */
 @Entity('appointments')
 class Appointment {
   @PrimaryGeneratedColumn('uuid')
