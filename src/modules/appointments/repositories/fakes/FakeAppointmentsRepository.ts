@@ -13,9 +13,15 @@ import IFindAllInDayFromProviderDTO from '../../dtos/IFindAllInDayFromProviderDT
 class AppointmentsRepository implements IAppointmentsRepository {
   private appointments: Appointment[] = [];
 
-  public async findByDate(date: Date): Promise<Appointment | undefined> {
+  public async findByDate(
+    date: Date,
+    provider_id: string,
+  ): Promise<Appointment | undefined> {
     // eslint-disable-next-line max-len
-    const findAppointment = this.appointments.find((appointment) => isEqual(appointment.date, date));
+    const findAppointment = this.appointments.find(
+      (appointment) => isEqual(appointment.date, date)
+        && appointment.provider_id === provider_id,
+    );
 
     return findAppointment;
   }
@@ -58,7 +64,10 @@ class AppointmentsRepository implements IAppointmentsRepository {
     const appointment = new Appointment();
 
     Object.assign(appointment, {
-      id: v4(), date, provider_id, user_id,
+      id: v4(),
+      date,
+      provider_id,
+      user_id,
     });
 
     this.appointments.push(appointment);
