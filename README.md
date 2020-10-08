@@ -1,5 +1,8 @@
 # GoBarber Backend
 
+Antes de executar, tenha o MongoDB, PostgreSQL e Redis, crie um banco de dados localmente chamado "gostack_gobarber" e rode yarn typeorm migration:run.
+Após, rode yarn dev:server.
+
 # Requisitos
 
 ## Recuperação de Senha
